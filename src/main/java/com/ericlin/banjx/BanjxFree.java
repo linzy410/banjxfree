@@ -28,42 +28,42 @@ public class BanjxFree {
 
 	public static void goFree() throws IOException {
 		wirteLog("-------" + (new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new java.util.Date()) + "-------");
-//		for (String email : emailArr) {
-//			Connection login = Jsoup.connect("http://banjx.com/_login.php")
-//					.data("email", email)
-//					.data("passwd", "123456")
-//					.header("Accept", "application/json, text/javascript, */*; q=0.01")
-//					.header("Origin", "http://banjx.com")
-//					.header("X-Requested-With", "XMLHttpRequest")
-//					.header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
-//					.header("Referer", "http://banjx.com/login.php")
-//					.header("Accept-Encoding", "gzip, deflate")
-//					.header("Accept-Language", "zh-CN,zh;q=0.8")
-//					.header("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-//			Response resp = login.method(Method.POST).execute();
-//			Document doc = resp.parse();
-//			wirteLog(email + ": " + ascii2native(doc.body().html().replaceAll("&quot;", "\"")));
-//			String user_email = resp.cookie("user_email");
-//			String user_pwd = resp.cookie("user_pwd");
-//			String uid = resp.cookie("uid");
-//
-//			Document free = Jsoup.connect("http://banjx.com/_checkin.php")
-//					.header("Accept", "application/json, text/javascript, */*; q=0.01")
-//					.header("X-Requested-With", "XMLHttpRequest")
-//					.header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
-//					.header("Referer", "http://banjx.com/user.php")
-//					.header("Accept-Encoding", "gzip, deflate, sdch")
-//					.header("Accept-Language", "zh-CN,zh;q=0.8")
-//					.cookie("user_email", user_email)
-//					.cookie("user_pwd", user_pwd).cookie("uid", uid).get();
-//			wirteLog(ascii2native(free.body().html().replaceAll("&quot;", "\"")));
-//
-//			try {
-//				Thread.sleep(3000);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		for (String email : emailArr) {
+			Connection login = Jsoup.connect("http://banjx.com/_login.php")
+					.data("email", email)
+					.data("passwd", "123456")
+					.header("Accept", "application/json, text/javascript, */*; q=0.01")
+					.header("Origin", "http://banjx.com")
+					.header("X-Requested-With", "XMLHttpRequest")
+					.header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
+					.header("Referer", "http://banjx.com/login.php")
+					.header("Accept-Encoding", "gzip, deflate")
+					.header("Accept-Language", "zh-CN,zh;q=0.8")
+					.header("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+			Response resp = login.method(Method.POST).execute();
+			Document doc = resp.parse();
+			wirteLog(email + ": " + ascii2native(doc.body().html().replaceAll("&quot;", "\"")));
+			String user_email = resp.cookie("user_email");
+			String user_pwd = resp.cookie("user_pwd");
+			String uid = resp.cookie("uid");
+
+			Document free = Jsoup.connect("http://banjx.com/_checkin.php")
+					.header("Accept", "application/json, text/javascript, */*; q=0.01")
+					.header("X-Requested-With", "XMLHttpRequest")
+					.header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
+					.header("Referer", "http://banjx.com/user.php")
+					.header("Accept-Encoding", "gzip, deflate, sdch")
+					.header("Accept-Language", "zh-CN,zh;q=0.8")
+					.cookie("user_email", user_email)
+					.cookie("user_pwd", user_pwd).cookie("uid", uid).get();
+			wirteLog(ascii2native(free.body().html().replaceAll("&quot;", "\"")));
+
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		wirteLog("--------------------------------");
 	}
 
