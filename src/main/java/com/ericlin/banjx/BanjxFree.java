@@ -13,8 +13,7 @@ import org.jsoup.nodes.Document;
 
 public class BanjxFree {
 
-	private static String[] emailArr =
-			{"linzy410@126.com", "123561326@qq.com", "linzheyan@qnvip.com", "1669595239@qq.com"};
+	private static String[] emailArr = {"linzy410@126.com", "123561326@qq.com", "linzheyan@qnvip.com", "1669595239@qq.com"};
 	
 	private static String logPath = null;
 
@@ -30,12 +29,15 @@ public class BanjxFree {
 	public static void goFree() throws IOException {
 		wirteLog("-------" + (new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new java.util.Date()) + "-------");
 //		for (String email : emailArr) {
-//			Connection login = Jsoup.connect("http://banjx.com/_login.php").data("email", email)
-//					.data("passwd", "123456").header("Accept", "application/json, text/javascript, */*; q=0.01")
-//					.header("Origin", "http://banjx.com").header("X-Requested-With", "XMLHttpRequest")
-//					.header("User-Agent",
-//							"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
-//					.header("Referer", "http://banjx.com/login.php").header("Accept-Encoding", "gzip, deflate")
+//			Connection login = Jsoup.connect("http://banjx.com/_login.php")
+//					.data("email", email)
+//					.data("passwd", "123456")
+//					.header("Accept", "application/json, text/javascript, */*; q=0.01")
+//					.header("Origin", "http://banjx.com")
+//					.header("X-Requested-With", "XMLHttpRequest")
+//					.header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
+//					.header("Referer", "http://banjx.com/login.php")
+//					.header("Accept-Encoding", "gzip, deflate")
 //					.header("Accept-Language", "zh-CN,zh;q=0.8")
 //					.header("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 //			Response resp = login.method(Method.POST).execute();
@@ -48,10 +50,11 @@ public class BanjxFree {
 //			Document free = Jsoup.connect("http://banjx.com/_checkin.php")
 //					.header("Accept", "application/json, text/javascript, */*; q=0.01")
 //					.header("X-Requested-With", "XMLHttpRequest")
-//					.header("User-Agent",
-//							"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
-//					.header("Referer", "http://banjx.com/user.php").header("Accept-Encoding", "gzip, deflate, sdch")
-//					.header("Accept-Language", "zh-CN,zh;q=0.8").cookie("user_email", user_email)
+//					.header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.82 Safari/537.36")
+//					.header("Referer", "http://banjx.com/user.php")
+//					.header("Accept-Encoding", "gzip, deflate, sdch")
+//					.header("Accept-Language", "zh-CN,zh;q=0.8")
+//					.cookie("user_email", user_email)
 //					.cookie("user_pwd", user_pwd).cookie("uid", uid).get();
 //			wirteLog(ascii2native(free.body().html().replaceAll("&quot;", "\"")));
 //
@@ -87,6 +90,7 @@ public class BanjxFree {
 			logFolder.mkdirs();
 		}
 		String fileName = logFolder.getAbsolutePath() + "/log.txt";
+		System.out.println(fileName);
 		try {
 			// 打开一个随机访问文件流，按读写方式
 			RandomAccessFile randomFile = new RandomAccessFile(fileName, "rw");
@@ -94,7 +98,7 @@ public class BanjxFree {
 			long fileLength = randomFile.length();
 			// 将写文件指针移到文件尾。
 			randomFile.seek(fileLength);
-			randomFile.writeBytes(content + "\r\n");
+			randomFile.write((content + "\r\n").getBytes());
 			randomFile.close();
 		} catch (IOException e) {
 			e.printStackTrace();
