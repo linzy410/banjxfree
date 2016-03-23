@@ -23,6 +23,7 @@ public class BanjxFree {
 		} else {
 			logPath = args[0];
 		}
+		System.out.println(logPath);
 		goFree();
 	}
 
@@ -98,7 +99,7 @@ public class BanjxFree {
 			long fileLength = randomFile.length();
 			// 将写文件指针移到文件尾。
 			randomFile.seek(fileLength);
-			randomFile.write((content + "\r\n").getBytes());
+			randomFile.write((content + "\r\n").getBytes("utf-8"));
 			randomFile.close();
 		} catch (IOException e) {
 			e.printStackTrace();
