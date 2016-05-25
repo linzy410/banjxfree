@@ -1,4 +1,4 @@
-package com.ericlin.banjx;
+package com.ericlin.mock.banjx;
 
 import java.io.File;
 import java.io.IOException;
