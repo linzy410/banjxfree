@@ -23,4 +23,8 @@ public class JianLouTask {
 
 		}, new HourIterator(0, 55, 0));
 	}
+	
+	public static void main(String[] args) {
+		new JianLouTask().start();
+	}
 }
