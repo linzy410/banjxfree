@@ -17,6 +17,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import com.ericlin.mock.util.WxPush;
 import com.google.gson.Gson;
 import com.qnvip.util.FileUtil;
 import com.qnvip.util.MailSender;
@@ -95,6 +96,7 @@ public class Jianlou {
 		String text = "<a href=\"" + allUrl + "\" target=\"_blank\">全部</a><br/><a href=\"" + jianlouUrl
 				+ "\" target=\"_blank\">捡漏</a>";
 		sender.sendHtmlAsync("123561326@qq.com", "捡漏", text);
+		WxPush.send(jianlouUrl);
 	}
 
 	private static String getAlbumString(Element element, int currentPrice, int bidNum, String focus) {
