@@ -8,19 +8,6 @@
 	<packaging>jar</packaging>
 
 	<name>banjx</name>
-	<repositories>
-		<repository>
-			<id>thirdparty</id>
-			<url>http://maven.qncentury.com/nexus/content/repositories/thirdparty</url>
-		</repository>
-		<repository>
-			<id>releases</id>
-			<url>http://maven.qncentury.com/nexus/content/repositories/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,6 +21,11 @@
 			<version>1.8.3</version>
 		</dependency>
 		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>com.qnvip</groupId>
 			<artifactId>commons</artifactId>
 			<version>1.0.6</version>
@@ -42,12 +34,11 @@
 					<groupId>org.postgresql</groupId>
 					<artifactId>postgresql</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.qiniu</groupId>
-			<artifactId>qiniu-java-sdk</artifactId>
-			<version>7.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
