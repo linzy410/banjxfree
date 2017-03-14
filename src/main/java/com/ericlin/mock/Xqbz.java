@@ -16,6 +16,7 @@ public class Xqbz extends Thread {
 	public Xqbz(int index) {
 		this.index = index;
 	}
+	// qinwin
 	private static String url = "http://120.55.66.227:88/APPI_SCM_SAL_NET.asp?Action=login&UID=";
 
 	@Override
@@ -30,6 +31,12 @@ public class Xqbz extends Thread {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
