@@ -1,4 +1,4 @@
-package com.ericlin.mock;
+package com.ericlin.mock.xqbz;
 
 import java.io.IOException;
 
